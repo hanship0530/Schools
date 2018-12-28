@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 입니다</title>
+</head>
+<body>
+    <h1 th:text="${'제목 : ' + board.title}">제목은 20글자로 잘라주세요.</h1>
+    <p th:text="${board.content}">
+        여기에 내용이 나옵니다.
+    </p>
+</body>
+</html>
