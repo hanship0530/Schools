@@ -1,3 +1,3 @@
-#Telnet WIth C
+# Telnet WIth C
 
-###Get Web source page 
+### Get Web source page 

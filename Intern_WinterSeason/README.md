@@ -1,17 +1,17 @@
-#Winter Season Intern (19.01.02 ~ 19.02.26)
+# Winter Season Intern (19.01.02 ~ 19.02.26)
 
-##MysqlWithC
+## MysqlWithC
 ```      
 Send Query to Mysql With C progmming     
 Insert query with multi-thread     
 Resolve sharing-resource problem    
 ```    
-##ThreadWithC
+## ThreadWithC
 ```     
 Resolve sharing-resource problem     
 Access global variance with Thread        
 ```    
-##TelentWithC
+## TelentWithC
 ```
 Get Web page source with telent C programming      
 ```     
