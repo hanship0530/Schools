@@ -15,3 +15,4 @@ Add linker option: -lmysqlclient
 ```     
 ### Reference
 http://zetcode.com/db/mysqlc/    
+http://www.cplusplus.com/forum/general/118160/      
