@@ -84,7 +84,9 @@ int main()
        cout<<"Connect Error: "<<mysql_error(&mysql)<<endl<<endl;
        return 1;
    }
-   
+/*
+ * Select Query
+*/   
 //   query_state=mysql_query(conn, "select * from mydata");
 //   
 //   if(query_state!=0)
@@ -104,8 +106,9 @@ int main()
 //   }
 //   cout<<endl<<endl;
    
-   //res=mysql_store_result(conn);
-   
+//   res=mysql_store_result(conn);
+//End of Select query
+
    makeArrayThread.detach();
    insertThread.detach();
    
