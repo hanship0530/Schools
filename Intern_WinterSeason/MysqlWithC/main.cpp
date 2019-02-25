@@ -9,7 +9,7 @@
 #include <fstream>
 #include <unistd.h> // sleep
 
-#define NUMOFDATAS 100000
+#define NUMOFDATAS 1000
 
 using namespace std;
 std::mutex mtx;
@@ -33,8 +33,8 @@ void makeArrayDataThread() {
     cout<<"Make Array Thread Start"<<endl;
     //pthread_setname_np(pthread_self(), "makeArrayDataThread");
     srand (time(NULL));
-    for(int index=0; index<NUMOFDATAS; index+=10){
-        for(int subIndex=index; subIndex<index+10; subIndex++) {
+    for(int index=0; index<NUMOFDATAS; index+=100){
+        for(int subIndex=index; subIndex<index+100; subIndex++) {
             person[subIndex].id = to_string(subIndex);
             person[subIndex].name = "testName"+to_string(subIndex);
             person[subIndex].age = to_string(rand()%20+20);
@@ -47,10 +47,10 @@ void insertQueryThread() {
     cout<<"Insert Thread Start"<<endl;
     //pthread_setname_np(pthread_self(), "insertQueryThread");
     string query;
-    for(int index=0; index<NUMOFDATAS; index+=10){
-        for(int subIndex=index; subIndex<index+10; subIndex++) {
+    for(int index=0; index<NUMOFDATAS; index+=100){
+        for(int subIndex=index; subIndex<index+100; subIndex++) {
             while(person[subIndex].id.empty()) {
-                
+                sleep(0.01); // give 0.01s to avoid full cpu usage
             }
             query = "insert into mydata values ('"+person[subIndex].id+"','"+person[subIndex].name+
             "','"+person[subIndex].age+"')";
@@ -113,7 +113,7 @@ int main()
    insertThread.detach();
    
    while(keepGoing) {
-       
+       sleep(0.01); // give 0.01s to avoid full cpu usage
    }
    
    mysql_free_result(res);
