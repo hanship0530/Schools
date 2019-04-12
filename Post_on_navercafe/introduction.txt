@@ -1,0 +1,9 @@
+CATALINA_HOME = C:\apache-tomcat-9.0.16
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_201
+PATH = %CATALINA_HOME%\bin;C:\Program Files\Java\jdk1.8.0_201\bin;
+
+네이버 api에 등록된 주소를 /etc/hosts파일에
+127.0.0.1 seoulrobot.com으로 변경하면 됨
+환경변수 설정하고 사용하면 됨
+
+무조건 아파치 톰캣 압축을 C드라이브 풀것!
