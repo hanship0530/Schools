@@ -1,0 +1,403 @@
+body {
+  background-image: url(/blackjack/blackjackMain.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+ .sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 48px; /* Height of navbar */
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+ .navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+/*
+ * Utilities
+ */
+
+ .border-top { border-top: 1px solid #e5e5e5; }
+ .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+ .clear{
+  clear: both;
+}
+
+.page{
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 500px;
+  text-align: center;
+}
+
+.dealer-cards .blackcard, .player-cards .blackcard {
+  margin-left: 5px;
+}
+
+.dealer-cards .blackcard:first-child, .player-cards .blackcard:first-child{
+  margin-left: 0;
+}
+
+.new-cards .blackcard:first-child{
+  margin-left: 5px;
+}
+
+.dealer-cards, .player-cards{
+  padding-top: 50px;
+  /*width: 164px;*/
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.dealer-total, .player-total{
+  margin-top: 10px;
+}
+
+.buttons{
+  width: 400px;
+  margin: 20px auto 0 auto;
+}
+
+.flipped{
+  background-position: -158px -492px !important;
+}
+
+.blackcard {
+  background-image: url(/blackjack/cards.png);
+  float: left;
+  height: 123px;
+  width: 79px;
+}
+
+.message{
+  font-size: 25px;
+  margin-top: 30px;
+  height: 60px;
+}
+
+/*.dealer-total{*/
+  /*visibility: hidden;*/
+  /*}*/
+
+
+  /* Clubs */
+  .ace-of-clubs{
+    background-position: 0 0;
+  }
+
+  .two-of-clubs{
+    background-position: -79px 0;
+  }
+
+  .three-of-clubs{
+    background-position: -158px 0;
+  }
+
+  .four-of-clubs{
+    background-position: -237px 0;
+  }
+
+  .five-of-clubs{
+    background-position: -316px 0;
+  }
+
+  .six-of-clubs{
+    background-position: -395px 0;
+  }
+
+  .seven-of-clubs{
+    background-position: -474px 0;
+  }
+
+  .eight-of-clubs{
+    background-position: -553px 0;
+  }
+
+  .nine-of-clubs{
+    background-position: -632px 0;
+  }
+
+  .ten-of-clubs{
+    background-position: -711px 0;
+  }
+
+  .jack-of-clubs{
+    background-position: -790px 0;
+  }
+
+  .queen-of-clubs{
+    background-position: -869px 0;
+  }
+
+  .king-of-clubs{
+    background-position: -948px 0;
+  }
+
+
+
+
+  /* Spades */
+  .ace-of-spades{
+    background-position: 0 -123px;
+  }
+
+  .two-of-spades{
+    background-position: -79px -123px;
+  }
+
+  .three-of-spades{
+    background-position: -158px -123px;
+  }
+
+  .four-of-spades{
+    background-position: -237px -123px;
+  }
+
+  .five-of-spades{
+    background-position: -316px -123px;
+  }
+
+  .six-of-spades{
+    background-position: -395px -123px;
+  }
+
+  .seven-of-spades{
+    background-position: -474px -123px;
+  }
+
+  .eight-of-spades{
+    background-position: -553px -123px;
+  }
+
+  .nine-of-spades{
+    background-position: -632px -123px;
+  }
+
+  .ten-of-spades{
+    background-position: -711px -123px;
+  }
+
+  .jack-of-spades{
+    background-position: -790px -123px;
+  }
+
+  .queen-of-spades{
+    background-position: -869px -123px;
+  }
+
+  .king-of-spades{
+    background-position: -948px -123px;
+  }
+
+
+
+  /* Hearts */
+  .ace-of-hearts{
+    background-position: 0 -246px;
+  }
+
+  .two-of-hearts{
+    background-position: -79px -246px;
+  }
+
+  .three-of-hearts{
+    background-position: -158px -246px;
+  }
+
+  .four-of-hearts{
+    background-position: -237px -246px;
+  }
+
+  .five-of-hearts{
+    background-position: -316px -246px;
+  }
+
+  .six-of-hearts{
+    background-position: -395px -246px;
+  }
+
+  .seven-of-hearts{
+    background-position: -474px -246px;
+  }
+
+  .eight-of-hearts{
+    background-position: -553px -246px;
+  }
+
+  .nine-of-hearts{
+    background-position: -632px -246px;
+  }
+
+  .ten-of-hearts{
+    background-position: -711px -246px;
+  }
+
+  .jack-of-hearts{
+    background-position: -790px -246px;
+  }
+
+  .queen-of-hearts{
+    background-position: -869px -246px;
+  }
+
+  .king-of-hearts{
+    background-position: -948px -246px;
+  }
+
+
+  /* Diamonds */
+  .ace-of-diamonds{
+    background-position: 0 -369px;
+  }
+
+  .two-of-diamonds{
+    background-position: -79px -369px;
+  }
+
+  .three-of-diamonds{
+    background-position: -158px -369px;
+  }
+
+  .four-of-diamonds{
+    background-position: -237px -369px;
+  }
+
+  .five-of-diamonds{
+    background-position: -316px -369px;
+  }
+
+  .six-of-diamonds{
+    background-position: -395px -369px;
+  }
+
+  .seven-of-diamonds{
+    background-position: -474px -369px;
+  }
+
+  .eight-of-diamonds{
+    background-position: -553px -369px;
+  }
+
+  .nine-of-diamonds{
+    background-position: -632px -369px;
+  }
+
+  .ten-of-diamonds{
+    background-position: -711px -369px;
+  }
+
+  .jack-of-diamonds{
+    background-position: -790px -369px;
+  }
+
+  .queen-of-diamonds{
+    background-position: -869px -369px;
+  }
+
+  .king-of-diamonds{
+    background-position: -948px -369px;
+  }
+
+  .bet{
+    width: 50px;
+    margin: 0 auto;
+    height: 40px;
+  }
+
+  .betting-area{
+    width: 70px;
+    margin: 30px auto 30px auto;
+  }
+
+  .betting-area #more{
+    float: left;
+    width: 30px;
+  }
+
+  .betting-area #less{
+    float: left;
+    width: 30px;
+  }
+
+  .money{
+    color: green;
+    font-size: 21px;
+  }

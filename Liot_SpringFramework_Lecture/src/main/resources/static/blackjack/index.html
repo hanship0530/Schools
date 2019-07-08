@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/blackjack/bootstrap.css">
+<link rel="stylesheet" href="/blackjack/loginForm.css">
+<link rel="stylesheet" href="/blackjack/dashboard.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Title</title>
+</head>
+</head>
+<body>
+
+<div id="socialLogin" style="padding-top: 15%; padding-left: 7%">
+    <div class="col-md-5" style="margin: auto; max-width: 50%">
+        <form class="form-signin mg-btm">
+            <h3 class="heading-desc">Login with social service</h3>
+            <div class="social-box">
+                <div class="row mg-btm">
+                    <div class="col-md-12" id="naver_login_button">
+                        <a href="#" class="btn btn-success btn-block">
+                            Login with Naver
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" class="btn btn-secondary btn-block">
+                            Login with Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <p>The SECOND SEMESTER IS OVER!!! HELL YA</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" id="top-nav" style="display: none;">
+    <a class="navbar-brand col-sm-6 col-md-2 mr-0" href="#">1Jo BlackJack</a>
+    <input class="form-control form-control-dark w-100" type="text" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" id="username"></a>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" id="balance"></a>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" id="charge_button">Charge</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" id="logout_button">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid" style="display: none;" id="top-div">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <h1 class="nav-link">
+                        Ranking
+                    </h1>
+                    </li>  
+                </ul>                
+                <ul class="nav flex-column" id="userlists">
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">BackDore: </h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <input type="text" size="3" id="nextCardInput" style="padding-right: 3%" />
+                    <p class="card-text" id="nextCards"></p>
+                </div>
+                <!--    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div> -->
+                <div id="lobby" style="display: none">
+                    <button type="button" class="btn btn-danger" id="create_room_button">Create</button>
+                </div>
+            </div>
+            <div class="row page" id="game" style="display: none; position: center">
+                <div class="col">
+                    <div class="dealer-cards"></div>
+                    <div class="clear"></div>
+                    <div class="player-cards"></div>
+                </div>
+                <div class="col" style="margin-top: 6%">
+                    <div class="buttons">
+                        <button type="button" class="btn btn-danger" style="margin-right: 5px" id="hit">Hit</button>
+                        <button type="button" class="btn btn-danger" style="margin-right: 5px" id="stand">Stand</button>
+                        <button type="button" class="btn btn-danger" id="doubledown">DoubleDown</button>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-danger" id="deal">Deal</button>
+                    </div>
+                    <div class="betting-area">
+                        <b>Your Bet</b><br>
+                        <div id="bet" class="bet money">0</div>
+                        <div class="buttons">
+                            <button type="button" class="btn btn-danger" style="margin-right: 5px;padding-left: 9px" id="more">+</button>
+                            <button type="button" class="btn btn-danger" id="less" style="padding-left: 9px;">-</button>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="position: center; display: none;" id="result">
+            </div>
+        </main>
+    </div>
+</div>
+
+</body>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="/blackjack/bootstrap.js"></script>
+<script src="/blackjack/jquery-3.3.1.min.js"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+<script>
+    var user;
+    var gameRoomId;
+
+    $.ajax({
+        type: 'GET',
+        url: '/api/users/myself',
+        contentType:'application/json;'
+    }).done(function(data) {
+        if (data && data.name) {
+            user = data;
+            $('#socialLogin').hide();
+            $('body').css({'background-image':'none'});
+            $('#top-nav').show();
+            $('#top-div').show();
+            $('#backdore').show();
+            $('#logout_button').show();
+            $('#lobby').show();
+            $('#username').html(user.name);
+            $('#balance').html(user.account);
+        }
+    });
+
+    $('#naver_login_button').click(function() {
+        location.href = '/login/naver'
+    })
+
+    $('#github_login_button').click(function() {
+        location.href = '/login/github'
+    })
+
+    $('#logout_button').click(function() {
+        location.href = '/logout'
+    })
+
+    $('#create_room_button').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms',
+        }).done(function(data) {
+            $('#login').hide();
+            $('#lobby').hide();
+            $('#game').show();
+            gameRoomId = data.roomId;
+            drawGameRoom(data);
+            $('#result').hide();
+        });
+    })
+
+    $('#charge_button').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/charge',
+        }).done(function(data) {
+            drawGameRoom(data);
+            $('#result').hide();
+        });
+    })
+
+    $('#deal').click(function() {
+        var bet = parseInt($('#bet').html());
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/bet',
+            data: JSON.stringify(bet),
+            contentType:'application/json;',
+        }).done(function(data) {
+            drawGameRoom(data);
+        });
+    })
+
+    $('#hit').click(function() {
+        var bet = parseInt($('#bet').html());
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/hit',
+        }).done(function(data) {
+            drawGameRoom(data);
+        }).fail(function(event) {
+            $('#result').html('');
+            $('#result').show();
+            $('#result').append("<h1 class='text-danger' style='margin-left: 20%'>"+'Not Enough Balance'+"</h1>");
+            location.reload();
+        });
+    })
+
+    $('#doubledown').click(function() {
+        var bet = parseInt($('#bet').html());
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/doubledown',
+            data: JSON.stringify(bet),
+            contentType:'application/json;',
+        }).done(function(data) {
+            drawGameRoom(data);
+        }).fail(function(event) {
+            $('#result').html('');
+            $('#result').show();
+            $('#result').append("<h1 class='text-danger' style='margin-left: 20%'>"+'Not Enough Balance'+"</h1>");
+            location.reload();
+        });
+    })
+
+    $('#nextCardInput').keypress(function(event) {
+    //console.log(event);
+        if (event.which != 13) {
+            return;
+        }
+        $.ajax({
+            type: 'PUT',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/deck/cards',
+            data: JSON.stringify(event.target.value),
+            contentType: 'application/json;',
+        }).done(function (data) {
+            drawGameRoom(data);
+        });
+    })
+
+    $('#stand').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: '/api/black-jack/rooms/' + gameRoomId + '/stand',
+        }).done(function(data) {
+            drawGameRoom(data);
+        });
+    })
+
+    $('#more').click(function(){
+    var bet = 1000;
+    var currentBet = parseInt($('#bet').html());
+        var money = parseInt($('#money').html());
+        if (money < bet) {
+            bet = money;
+        }
+        if (currentBet + bet > 10000) {
+            $('#bet').html(10000);
+        } else {
+            $('#bet').html(currentBet + bet);
+            $('#money').html(money - bet);
+        }        
+    });        
+
+    $('#less').click(function(){
+        var bet = 1000;
+        var currentBet = parseInt($('#bet').html());
+        var money = parseInt($('#money').html());
+        if(currentBet < bet) {
+            bet = currentBet;
+        }
+
+        $('#bet').html(currentBet - bet);
+        $('#money').html(money + bet);
+    });
+
+    function drawGameRoom(gameRoom) {
+        if (gameRoom.finished) {
+            $('#deal').show();
+            $('#more').show();
+            $('#less').show();
+            $('#hit').hide();
+            $('#stand').hide();
+            $('#doubledown').hide();
+            $('#result').show();
+        } else {
+            $('#deal').hide();
+            $('#more').hide();
+            $('#less').hide();
+            $('#hit').show();
+            $('#stand').show();
+            $('#doubledown').show();
+            $('#result').hide();
+        }
+
+        $('#nextCards').html("");
+        gameRoom.deck.cardList.forEach(function(card) {
+            $('#nextCards').append(card.rank + ", ");
+        })
+
+        $('.dealer-cards').html("");
+        gameRoom.dealer.hand.cardList.forEach(function(card) {
+            $('.dealer-cards').append(generateCardDiv(card.rank, card.suit));
+        })
+        if (gameRoom.dealer.hand.cardList.length == 1) {
+            $('.dealer-cards').append('<div class="blackcard blackcard2 flipped" data-value="6"></div>');
+        }
+        if (gameRoom.dealer.hand.cardList.length > 0) {
+            $('.dealer-cards').append('<div id="dealerTotal" class="dealer-total">' + gameRoom.dealer.hand.cardSum + '</div>')
+        }
+
+        $('.player-cards').html("");
+        gameRoom.playerList[user.name].hand.cardList.forEach(function(card) {
+            $('.player-cards').append(generateCardDiv(card.rank, card.suit));
+        });
+        if (gameRoom.playerList[user.name].hand.cardList.length > 0) {
+            $('.player-cards').append('<div id="playerTotal" class="player-total">' + gameRoom.playerList[user.name].hand.cardSum + '</div>')
+        }
+        if ($('#bet').html(gameRoom.playerList[user.name].currentBet) > 10000) {
+            $('#bet').html(0);
+        } else {
+            $('#bet').html(gameRoom.playerList[user.name].currentBet);
+        }
+        $('#username').html(user.name);
+        $('#balance').html(gameRoom.playerList[user.name].balance);
+        $('#userlists').html('');
+
+        $('#result').html('');
+        if (gameRoom.playerList[user.name].result == 0) {
+            $('#result').append("<h1 class='text-info' style='margin-left: 20%'>"+'WIN'+"</h1>");
+        } else if( gameRoom.playerList[user.name].result == 1){
+            $('#result').append("<h1 class='text-danger' style='margin-left: 20%'>"+'LOOSE'+"</h1>");
+        } else if( gameRoom.playerList[user.name].result == 2){
+            $('#result').append("<h1 class='text-secondary' style='margin-left: 20%'>"+'TIE'+"</h1>");
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/users/userlists',
+            contentType:'application/json;'
+        }).done(function(data) {
+            $('#userlists').html('');
+            if (data) {
+                $.each(data, function (index, user) {
+                var eachrow = "<li class='nav-item'>"
+                +"<a class='nav-link'>"+(index+1)+'위 '+user.name+', '+user.account+"</a>"+ "</li>";
+                $('#userlists').append(eachrow);
+                });
+            }
+        });
+    }
+
+    function generateCardDiv(rank, suit) {
+        var className = "";
+        switch (rank) {
+            case 1 :
+            className = "ace-of-";
+            break;
+            case 2:
+            className = "two-of-";
+            break;
+            case 3 :
+            className = "three-of-";
+            break;
+            case 4 :
+            className = "four-of-";
+            break;
+            case 5 :
+            className = "five-of-";
+            break;
+            case 6 :
+            className = "six-of-";
+            break;
+            case 7 :
+            className = "seven-of-";
+            break;
+            case 8 :
+            className = "eight-of-";
+            break;
+            case 9 :
+            className = "nine-of-";
+            break;
+            case 10 :
+            className = "ten-of-";
+            break;
+            case 11 :
+            className = "jack-of-";
+            break;
+            case 12 :
+            className = "queen-of-";
+            break;
+            case 13 :
+            className = "king-of-";
+            break;
+        }
+        className += suit.toLowerCase();
+
+        return "<div class='blackcard " + className + "' data-value='" + rank +"'></div>";
+    }
+</script>
+</html>
