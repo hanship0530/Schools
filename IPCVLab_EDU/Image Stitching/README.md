@@ -14,6 +14,7 @@ Implement a different descriptor (HOG descriptor) and get another stitching resu
 ![girls_1](girls_1.jpg){:height="200px" width="100px"}
 ![girls_2](girls_2.jpg){:height="200px" width="100px"}
 ![result](result.png){:height="200px" width="100px"}
+<img align="right" width="100" height="100" src="girls_1.jpg">
 ## Ref   
 * https://github.com/mikucy/CS131    
 * http://vision.stanford.edu/teaching/cs131_fall1415/schedule.html    
