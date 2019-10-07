@@ -11,8 +11,7 @@ Build a descriptor to describe each point in an image.
 5. Given the transformation matrix, use it to transform the second image and overlay it on the first image, forming a panorama.         
 Implement a different descriptor (HOG descriptor) and get another stitching result.     
 
-![girls_1](girls_1.jpg)![girls_2](girls_2.jpg)![result](result.png)
-<img align="left" src="girls_1.jpg"><img align="center" src="girls_2.jpg"><img align="right" src="result.png">
+<img align="left" widht="20%" src="girls_1.jpg"><img align="center" widht="20%" src="girls_2.jpg"><img align="right" widht="60%" src="result.png">
 ## Ref   
 * https://github.com/mikucy/CS131    
 * http://vision.stanford.edu/teaching/cs131_fall1415/schedule.html    
